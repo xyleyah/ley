@@ -1,36 +1,109 @@
-# This is a basic workflow to help you get started with Actions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend's Day!</title>
+    <!-- Favicon link (Replace this URL with your butterfly image URL) -->
+    <link rel="icon" href="her.jpg" type="image/png">
+    <link rel="stylesheet" href="stylee.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fffaf0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #ffb6c1;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 3em;
+        }
+        .container {
+            padding: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #666;
+        }
+        .heart {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
 
-name: CI
+        /* Styling the hidden checkbox */
+        input[type="checkbox"] {
+            display: none;
+        }
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+        /* Label as button */
+        label {
+            background-color: #ff69b4;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        label:hover {
+            background-color: #ff1493;
+        }
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+        /* Hidden message */
+        #surpriseMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff1493;
+            transition: opacity 0.5s ease-in-out;
+        }
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+        /* When checkbox is checked, show the message */
+        input[type="checkbox"]:checked ~ #surpriseMessage {
+            display: block;
+        }
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #ffb6c1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Happy National Girlfriend's Day!</h1>
+    </header>
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    <div class="container">
+        <div class="heart">❤️</div>
+        <p>Hey love,</p>
+        <p>GOOD MORNING BABY and I just want to remind you how much you mean to me hshsh just wanna say thank you. Today is a special day man, and I made this little site just for you lang hmph</p>
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+        <!-- Hidden checkbox to control the interaction -->
+        <input type="checkbox" id="toggleMessage">
+        <label for="toggleMessage">Click me for a surprise</label>
+
+        <p id="surpriseMessage">
+            You're the best thing that ever happened to me! I love you more than words can say! 💖
+            <a href = "https://youtu.be/iggmiF7DNoM?si=egAjiueRg6fjsyuc" target="_blank" > Watch this video (hindi na eto spotify kasi wala ka man spoti hehe) </a>
+        </p>
+    </div>
+
+    <footer>
+        <p>Made with love by Leyley</p>
+    </footer>
+</body>
+</html>
+
