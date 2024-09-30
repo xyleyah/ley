@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend's Day!</title>
+    <!-- Favicon link (Replace this URL with your butterfly image URL) -->
+    <link rel="icon" href="her.jpg" type="image/png">
+    <link rel="stylesheet" href="stylee.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fffaf0;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background-color: #ffb6c1;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #ff69b4;
+            font-size: 3em;
+        }
+        .container {
+            padding: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #666;
+        }
+        .heart {
+            font-size: 3em;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        /* Styling the hidden checkbox */
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        /* Label as button */
+        label {
+            background-color: #ff69b4;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        label:hover {
+            background-color: #ff1493;
+        }
+
+        /* Hidden message */
+        #surpriseMessage {
+            display: none;
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #ff1493;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        /* When checkbox is checked, show the message */
+        input[type="checkbox"]:checked ~ #surpriseMessage {
+            display: block;
+        }
+
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #ffb6c1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Happy National Girlfriend's Day!</h1>
+    </header>
+
+    <div class="container">
+        <div class="heart">❤️</div>
+        <p>Hey love,</p>
+        <p>GOOD MORNING BABY and I just want to remind you how much you mean to me hshsh just wanna say thank you. Today is a special day man, and I made this little site just for you lang hmph</p>
+
+        <!-- Hidden checkbox to control the interaction -->
+        <input type="checkbox" id="toggleMessage">
+        <label for="toggleMessage">Click me for a surprise</label>
+
+        <p id="surpriseMessage">
+            You're the best thing that ever happened to me! I love you more than words can say! 💖
+            <a href = "https://youtu.be/iggmiF7DNoM?si=egAjiueRg6fjsyuc" target="_blank" > Watch this video (hindi na eto spotify kasi wala ka man spoti hehe) </a>
+        </p>
+    </div>
+
+    <footer>
+        <p>Made with love by Leyley</p>
+    </footer>
+</body>
+</html>
