@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthsary Message</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Roboto', sans-serif;
+            background-color: floralwhite;
+            margin: 0;
+            overflow: hidden;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff4081;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #e91e63;
+        }
+        #message {
+            display: none;
+            font-size: 200px;
+            color: #ff4081;
+            font-family: 'Dancing Script', cursive;
+            position: relative;
+            margin-top: 20px;
+            text-align: center;
+            animation: fadeIn 1s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #envelope {
+            display: none;
+            width: 1100px;
+            height: 500px;
+            background-color: #fff;
+            border: 2px solid #ff4081;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        #envelope::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #ff4081;
+            border-radius: 5px 5px 0 0;
+            transform: skewY(-5deg);
+        }
+        #envelopeMessage {
+            display: none;
+            font-size: 38px;
+            color: #333;
+            margin: 20px;
+            text-align: justify-all;
+            font-family: 'Dancing Script', cursive;
+        }
+        #imagesContainer {
+            display: none;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            display: flex;
+        }
+        .popupImage {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            margin: 10px;
+            position: relative;
+            cursor: pointer;
+            border: 2px solid #ff4081;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .letter {
+            position: absolute;
+            color: purple;
+            font-size: 4rem;
+            font-weight: bold;
+            display: none;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            font-family: 'Dancing Script', cursive;
+        }
+        #finalButton {
+            display: none;
+            position: absolute;
+            bottom: 20px;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 24px;
+            opacity: 0;
+            animation: floatUp 4s ease-in-out infinite;
+        }
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-400px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 id="prompt">What day is today?</h1>
+    <input type="text" id="dateInput" placeholder="Enter the date">
+    <button onclick="checkDate()">Enter</button>
+
+    <div id="message">Happy Monthsary, Baby!</div>
+    <div id="hearts"></div>
+
+    <div id="envelope" onclick="openEnvelope()">
+        <div id="envelopeMessage">
+            <p>My Love,</p>
+            <p>Happy monthsary! It’s hard to believe that we got back together after those months apart. I missed you so much, and I’m really grateful we found our way back to each other.</p>
+            <p>Thank you for giving us another chance—I truly believe we’re stronger together.</p>
+            <p>I love you more than words can say! 🥰</p>
+        </div>
+    </div>
+
+    <button id="moreImagesButton" onclick="showImages()" style="display: none;">CLICK ME, BABY! hehe!</button>
+
+    <div id="imagesContainer"></div>
+    <button id="finalButton" onclick="askForDate()">Can we go on a date?</button>
+
+    <script>
+        function checkDate() {
+            const input = document.getElementById('dateInput').value.trim();
+            const message = document.getElementById('message');
+            const heartsContainer = document.getElementById('hearts');
+            heartsContainer.innerHTML = '';
+
+            document.getElementById('prompt').style.display = 'none';
+            document.getElementById('dateInput').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+
+            if (input.toLowerCase() === 'october 5') {
+                message.style.display = 'block';
+                createFloatingHearts(); // Start floating hearts animation
+
+                setTimeout(() => {
+                    message.style.display = 'none';
+                    document.getElementById('envelope').style.display = 'block';
+                    document.getElementById('envelopeMessage').style.display = 'block';
+                    document.getElementById('moreImagesButton').style.display = 'block';
+                }, 8000);
+            } else {
+                alert('Try again!');
+            }
+        }
+
+        function openEnvelope() {
+            const envelopeMessage = document.getElementById('envelopeMessage');
+            envelopeMessage.style.display = 'block';
+        }
+
+        function showImages() {
+            document.getElementById('envelope').style.display = 'none';
+            document.getElementById('moreImagesButton').style.display = 'none';
+            
+            const imagesContainer = document.getElementById('imagesContainer');
+            imagesContainer.style.display = 'flex';
+
+            const images = [
+                { src: '1.jpg', letter: 'I' },
+                { src: '2.jpg', letter: 'L' },
+                { src: '3.jpg', letter: 'O' },
+                { src: '4.jpg', letter: 'V' },
+                { src: '5.jpg', letter: 'E' },
+                { src: '6.jpg', letter: 'Y' },
+                { src: '7.jpg', letter: 'O' },
+                { src: '8.jpg', letter: 'U' },
+                { src: '9.jpg', letter: 'S' },
+                { src: '10.jpg', letter: 'O' },
+                { src: '11.jpg', letter: 'L' },
+            ];
+
+            imagesContainer.innerHTML = '';
+
+            let lettersRevealed = 0;
+
+            images.forEach(image => {
+                const imageWrapper = document.createElement('div');
+                imageWrapper.style.position = 'relative';
+                imageWrapper.style.width = 'fit-content';
+                imageWrapper.style.margin = '10px';
+
+                const img = document.createElement('img');
+                img.src = image.src;
+                img.classList.add('popupImage');
+                img.style.display = 'block';
+                imageWrapper.appendChild(img);
+
+                const letterOverlay = document.createElement('div');
+                letterOverlay.innerText = image.letter;
+                letterOverlay.className = 'letter';
+                letterOverlay.style.position = 'absolute';
+                letterOverlay.style.display = 'none';
+                imageWrapper.appendChild(letterOverlay);
+
+                img.onclick = function() {
+                    letterOverlay.style.display = 'block';
+                    lettersRevealed++;
+
+                    if (lettersRevealed === images.length) {
+                        document.getElementById('finalButton').style.display = 'block';
+                    }
+                };
+
+                imagesContainer.appendChild(imageWrapper);
+            });
+        }
+
+        function askForDate() {
+            const userDate = prompt('What date do you want to suggest?');
+            if (userDate) {
+                alert(`You suggested ${userDate}! Can't wait!`);
+            }
+        }
+
+        function createFloatingHearts() {
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤️';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = `${Math.random() * 2}s`;
+                heart.style.fontSize = Math.random() * 24 + 12 + 'px';
+                document.getElementById('hearts').appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
